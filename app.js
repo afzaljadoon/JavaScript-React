@@ -128,6 +128,19 @@
 // }
 // console.log(largestNumber());
 
+//Finding the largest number in an array with getting the array from users
+// const largestNumber = (arr) => {
+    
+//  let largest = arr[0];
+//     for (let i = 0; i < arr.length; i++ ){
+//     if(arr[i] > largest) {
+//         largest = arr[i];
+//     }
+//     }
+// return largest;
+// }
+// console.log(largestNumber([1, 23, 43, 54, 64, 5, 3, 75]));
+
 //Finding the largest number with Math.max()
 
 // const largestNumber = () => {
@@ -138,6 +151,17 @@
 // }
 
 // console.log(largestNumber())
+
+//Finding the largest number with Math.max() getting the array from users
+
+// const largestNumber = (arr) => {
+
+//     let largest = Math.max(...arr);
+
+//     return largest;
+// }
+
+// console.log(largestNumber([1, 23, 43, 54, 64, 5, 3, 75]))
 
 //FInding the largest number with the help of reduce method
  
@@ -158,3 +182,4 @@
 //  }
 
 //  console.log(largestNumber())
+
