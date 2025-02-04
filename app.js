@@ -174,6 +174,16 @@
 
 // console.log(largestNumber())
 
+//FInding the largest number with the help of reduce method getting the input array from users
+ 
+// const largestNumber = (arr) => {
+
+//     let largest = arr.reduce((num, acc) => num > acc ? num : acc);
+//     return largest;
+// }
+
+// console.log(largestNumber([1, 23, 43, 54, 64, 5, 3, 75]))
+
 //Find largest number using .sort() method
 //  const largestNumber = () => {
 //     const numbers = [1, 23, 43, 54, 64, 5, 3, 75];
@@ -182,4 +192,12 @@
 //  }
 
 //  console.log(largestNumber())
+
+//Find largest number using .sort() method getting the input array from the users
+//  const largestNumber = (arr) => {
+//     return arr.sort((a, b) => b - a)[0];
+    
+//  }
+
+//  console.log(largestNumber([1, 23, 43, 54, 64, 5, 3, 75]));
 
