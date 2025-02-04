@@ -201,3 +201,100 @@
 
 //  console.log(largestNumber([1, 23, 43, 54, 64, 5, 3, 75]));
 
+//Creating a new function that combines multiple functions into one with loop method
+// function compose(functions) {
+     
+//     if (functions.length === 0){
+//         return function(x){
+//             return x;
+//         }
+//     }
+
+//     return function (x) {
+//         let result = x;
+
+//         for (let i = functions.length - 1; i >= 0; i--){
+
+//             result = functions[i](result);
+
+
+//         }
+//         return result;
+//     }
+// }  
+// const functions = [
+//     (x) => x + 3,
+//     (x) => x * 2,
+//     (x) => x + 1,
+// ]
+//  const composed = compose(functions);
+
+//  console.log(composed(5))
+//  console.log(composed(10))
+//  console.log(composed(12))
+
+ //Creating a new function that combines multiple functions into one with reduceRight method
+//  function compose(functions) {
+//     return function (x) {
+//        return functions.reduceRight((result, fn) => fn(result), x)
+//     }
+//  }
+ 
+//  const functions = [
+//     (x) => x + 3,
+//     (x) => x + 2,
+//     (x) => x + 1,
+//  ]
+
+//  const compsed = compose(functions);
+//  console.log(compsed(5))
+
+
+ //Creating a new function that combines multiple functions into one with Recursive method
+//  function compose(functions) {
+    
+//     return function (x) {
+//         if(functions.length === 0) return x
+
+
+//         const lastFunction = functions[functions.length - 1];
+
+//         const remainingFunction = functions.slice(0, -1);
+
+//         const result = compose(remainingFunction)(x);
+
+//         return result;
+
+
+//     }
+//  }
+
+//  const functions = [
+//     (x) => x + 1,
+//     (x) => x * 2,
+//     (x) => x - 3,
+//  ]
+
+//  const composed = compose(functions);
+
+//  console.log(composed(5))
+
+
+ //Creating a new function that combines multiple functions into one with reduce method
+
+ function compose(functions) {
+    return function(x){
+        return functions.reverse().reduce((result, fn) => fn(result), x)
+    }
+ }
+
+const functions = [
+    (x) => x + 1,
+    (x) => x * 2,
+    (x) => x - 3,
+]
+
+const composed = compose(functions);
+
+console.log(composed(5))
+
