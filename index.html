@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Credentials</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .email-container {
+      max-width: 600px;
+      width: 100%;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+    }
+
+    .logo-header {
+      text-align: center;
+      padding: 20px;
+    }
+
+    .logo {
+      max-width: 130px;
+    }
+
+    main {
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 1.5em;
+      color: rgb(58, 57, 157);
+    }
+
+    h1 span {
+      color: #333;
+      font-family: Montserrat, sans-serif;
+    }
+
+    .content h2 {
+      font-size: 1.2em;
+      color: #333;
+      font-family: Montserrat, sans-serif;
+    }
+
+    .content p {
+      font-size: 0.9em;
+      line-height: 1.5;
+      font-family: Montserrat, sans-serif;
+    }
+
+    .credentials {
+      background-color: #f1f1f1;
+      padding: 15px;
+      border-radius: 8px;
+      margin: 20px 0;
+      text-align: left;
+      font-family: Montserrat, sans-serif;
+    }
+
+    .credentials p {
+      margin: 5px 0;
+    }
+
+    .website-button {
+      display: inline-block;
+      background-color: rgb(110, 109, 209);
+      color: rgb(255, 255, 255);
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 20px;
+      font-size: 1em;
+      margin-top: 10px;
+    }
+
+    .contact-info a {
+      color: #4a154b;
+      text-decoration: none;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #f1f1f1;
+    }
+
+    .footer-logo {
+      max-width: 100px;
+    }
+
+    footer p {
+      font-size: 0.8em;
+      margin: 3px 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="email-container">
+    <header class="logo-header">
+      <img src="https://hrm.dominioninc.org/assets/hrm-Dx_B22tG.png" alt="DashTime Logo" class="logo">
+    </header>
+    <main>
+      <h1>Welcome, <span>{{ $data['name'] }}</span></h1>
+      <div class="content">
+        <h2>Your Login Credentials</h2>
+        <p>
+          Below are your login credentials for accessing the DashTime  platform. Please keep this information secure.
+        </p>
+        <div class="credentials">
+          <p><strong>Email:</strong> {{ $data['email'] }}</p>
+          <p><strong>Password:</strong> {{ $data['password'] }}</p>
+        </div>
+        <p>Click the button below to log in to your account.</p>
+        <a href="https://hrm.dominioninc.org/login" target="_blank" class="website-button">Log In to DASHTIME</a>
+        <p class="contact-info">
+          If you have any inquiries or concerns, feel free to
+          reach out to our administrator at the email address
+          {{-- <a href="mailto:info@dominioninc.org">info@dominioninc.org</a>. --}}
+          We are here to assist you and provide the information you need.
+        </p>
+      </div>
+    </main>
+    <footer>
+      <img src="https://hrm.dominioninc.org/assets/hrm-Dx_B22tG.png" alt="DASHTIME Logo" class="footer-logo">
+    </footer>
+  </div>
+</body>
+</html>
