@@ -281,20 +281,41 @@
 
 
  //Creating a new function that combines multiple functions into one with reduce method
+// IDENTIFY FUNCTION: those function which doesn't change the input
+//COMPOSED FUNCTION: it is the function which is created by combining multiple functions, where output of one function becomes the input of the next function
 
- function compose(functions) {
-    return function(x){
-        return functions.reverse().reduce((result, fn) => fn(result), x)
-    }
- }
+//  function compose(functions) {
+//     return function(x){
+//         return functions.reverse().reduce((result, fn) => fn(result), x)
+//     }
+//  }
 
-const functions = [
-    (x) => x + 1,
-    (x) => x * 2,
-    (x) => x - 3,
-]
+// const functions = [
+//     (x) => x + 1,
+//     (x) => x * 2,
+//     (x) => x - 3,
+// ]
 
-const composed = compose(functions);
+// const composed = compose(functions);
 
-console.log(composed(5))
+// console.log(composed(5))
 
+//Creating a function which give us the length of an array with the help of loop
+//  const lengthOfArray = (arr) => {
+//     for (let i = 0; i < arr.length; i++){
+//         if(arr.length === 0){
+//             return false;
+//         } else {
+//             return arr.length;
+//         }
+//     }
+//  }
+
+// console.log(lengthOfArray([5, 6, 49, 65, "null"]))
+
+//Creating a function which give us the length of an array with the help simple method
+
+// const lengthOfArray = (arr) => {
+//     return arr.length;
+// }
+//  console.log(lengthOfArray([4, 65, 34, 2, "null", 43, 3, 4, 23, 5 , 54]))
