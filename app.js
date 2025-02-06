@@ -319,3 +319,56 @@
 //     return arr.length;
 // }
 //  console.log(lengthOfArray([4, 65, 34, 2, "null", 43, 3, 4, 23, 5 , 54]))
+
+//A function called once and repeatative calls result undefined with method one
+
+// const once = (fn) => {
+//     let called = false;
+//     return function (...args) {
+//         if(!called){
+//             called = true;
+//             return fn(...args);
+//         }
+//         return undefined;
+//     }
+// }
+
+// const greet = () => "Hello, Babar what's up";
+
+// const greetOnce = once(greet);
+// console.log(greetOnce());
+// console.log(greetOnce())
+// console.log(greetOnce())
+
+//A function called once and repeatative calls result undefined with Arrow functions
+// const once = (fn) => {
+//     let called = false;
+//     return  (...args) => !called ? (called = true, fn(...args)) : undefined;
+   
+// }
+
+// const greet = () => ("Hi Babar what's up");
+// const greetOnce = once(greet);
+
+// console.log(greetOnce())
+// console.log(greetOnce())
+// console.log(greetOnce())
+
+//A function called once and repeatative calls result undefined with Prototype method
+
+// const once = (fn) => {
+//     return function (...args) {
+//         if(!fn) return undefined;
+//         let result = fn(...args);
+//         fn = null;
+//         return result;
+//     }
+// }
+
+// const greet = () => "Hi Babar how are you doing";
+
+// const greetOnce = once(greet);
+
+// console.log(greetOnce())
+// console.log(greetOnce())
+// console.log(greetOnce())
