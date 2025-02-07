@@ -14,7 +14,7 @@ const checkWeahter = async (city) => {
  } else  {
   var data = await response.json();
 
-  document.querySelector(".city").innerHTML = data.city;
+  document.querySelector(".city").innerHTML = data.name;
   document.querySelector(".temp").innerHTML = Math.round(data.main.temp) + "°c";
   document.querySelector(".humidity").innerHTML = data.main.humidity + "%";
   document.querySelector(".wind").innerHTML = data.wind.speed + " km/h";
@@ -40,11 +40,9 @@ const checkWeahter = async (city) => {
   document.querySelector(".weather").style.display = "block"
   document.querySelector(".error").style.display = "none";
  }
-
-
 }
 
-searchBtn.addEventListener("clickclouds", () => {
+searchBtn.addEventListener("click", () => {
  checkWeahter(searchBox.value)
 })
 
