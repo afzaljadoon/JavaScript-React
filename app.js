@@ -372,3 +372,123 @@
 // console.log(greetOnce())
 // console.log(greetOnce())
 // console.log(greetOnce())
+
+//Memoized Function using Object as cache
+
+// const memoized = (fn) => {
+
+//  const cache = {};
+
+//  return function  (...args) {
+//  const key = JSON.stringify(args);
+
+//  if(cache.hasOwnProperty(key)){
+//   return cache[key];
+//  } else {
+//   const result = fn(...args);
+
+//   cache[key] = result;
+
+//   return result;
+//  }
+//  }
+// }
+
+// function sum (a, b) {
+//  return a + b;
+// }
+ 
+// const memoizedSum = memoized(sum);
+
+// console.log(memoizedSum(2, 45))
+// console.log(memoizedSum(2, 45))
+// console.log(memoizedSum(5, 6))
+
+
+// function fib(n) {
+//  if(n<= 1) return 1;
+
+//  return fib(n - 1) + (n - 2);
+// }
+
+// const memoizedFib = memoized(fib)
+
+// console.log(memoizedFib(4))
+// console.log(memoizedFib(4))
+// console.log(memoizedFib(7))
+
+
+// function factorial(n){
+//  if (n <= 1) return 1;
+
+//  return (n - 1) * n;
+
+// }
+
+// const memoizedFactorial = memoized(factorial);
+
+
+// console.log(memoizedFactorial(6))
+// console.log(memoizedFactorial(5))
+// console.log(memoizedFactorial(10))
+
+//emoized Function Using Map method for cache
+
+const memoize = (fn) => {
+
+const cache = new Map();
+
+
+
+ return function (...args) {
+
+  const key = JSON.stringify(args);
+
+  if(cache.has(key)){
+   return cache.get[key]
+  } else {
+   const result = fn(...args);
+
+   cache.set(key. result);
+
+   return result;
+  }
+ }
+}
+
+// function sum (a, b) {
+//  return a + b;
+// }
+ 
+// const memoizedSum = memoize(sum);
+
+// console.log(memoizedSum(2, 45))
+// console.log(memoizedSum(2, 45))
+// console.log(memoizedSum(5, 6))
+
+
+// function fib(n) {
+//  if(n<= 1) return 1;
+
+//  return fib(n - 1) + (n - 2);
+// }
+
+// const memoizedFib = memoize(fib)
+
+// console.log(memoizedFib(4))
+// console.log(memoizedFib(4))
+// console.log(memoizedFib(7))
+
+// function factorial(n){
+//  if (n <= 1) return 1;
+
+//  return (n - 1) * n;
+
+// }
+
+// const memoizedFactorial = memoize(factorial);
+
+
+// console.log(memoizedFactorial(6))
+// console.log(memoizedFactorial(5))
+// console.log(memoizedFactorial(10))
