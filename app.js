@@ -537,3 +537,49 @@
 // console.log(memoizedFib(4))
 // console.log(memoizedFib(4))
 // console.log(memoizedFib(7))
+
+//Promises Problem
+
+
+// const sumOfPromises = (promise1, promise2) => {
+//  return Promise.all([promise1, promise2])
+//  .then(([result1, result2]) => {
+
+//   return result1 + result2;
+//  })
+// }
+
+// const promise1 = Promise.resolve(50);
+// const promise2 = Promise.resolve(30);
+
+// sumOfPromises(promise1, promise2)
+// .then(sum => {
+//  console.log(sum);
+// })
+
+//Adding Error handling to the existing promise
+
+// const sumOfPromises = (promise1, promise2) => {
+//   return Promise.all([promise1, promise2])
+//   .then(([result1, result2]) => {
+//    if(typeof result1 !== 'number' || typeof result2 !== 'number'){
+//     throw new Error('Both Promises must resolve to a number')
+//    }
+//    return result1 + result2;
+//   })
+//   .catch(error => {
+//    console.error('Error:', error.message)
+//    throw error;
+//   })
+// }
+
+// const promise1 = Promise.resolve(20);
+// const promise2 = Promise.resolve(20);
+
+// sumOfPromises(promise1, promise2)
+// .then(sum => {
+//  console.log(sum)
+// })
+// .catch(error => {
+//  console.error('Failed to sum promises:', error)
+// })
