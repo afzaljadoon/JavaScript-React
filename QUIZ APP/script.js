@@ -1,49 +1,50 @@
-const questions = [
- {
-  question: "Which is largest desert in the world?",
-  answers: [
-   { text : "Kalahari", correct: false},
-   { text : "Gobi", correct: false},
-   { text : "Sahara", correct: false},
-   { text : "Antarctica", correct: true},
-  ]
- },
- {
-  question: "Which is the smallest country in the world?",
-  answers: [
-   { text : "Vatican City", correct: true},
-   { text : "Bhutan", correct: false},
-   { text : "Nepal", correct: false},
-   { text : "Srilanka", correct: false},
-  ]
- },
- {
-  question: "Which is largest animal in the world?",
-  answers: [
-   { text : "Shark", correct: false},
-   { text : "Blue Whale", correct: true},
-   { text : "ELephant", correct: false},
-   { text : "Giraffe", correct: false},
-  ]
- },
- {
-  question: "Which is smallest continent in the world?",
-  answers: [
-   { text : "Asia", corquestionrect: false},
-   { text : "Australia", correct: true},
-   { text : "Arctic", correct: false},
-   { text : "Africa", correct: false},
-  ]
- },
-];
+const  API_URL = "https://quizapi.io/api/v1/questions";
+const API_KEY="KZwm5qw8A33poSiCNy81llO5cZcfMeciXO1JsVwg";
 
-const quesitonElement = document.getElementById("question");
+const questionElement = document.getElementById("question");
 const answerButtons = document.getElementById("answer-buttons");
 const nextButton = document.getElementById("next-btn");
 
 
 let currentQuestionIndex = 0;
 let score = 0;
+let questions = [];
+
+const fetchQuestions = async () => {
+ try {
+     const response = await fetch(API_URL, {
+         headers: {
+             "X-Api-Key": API_KEY
+         }
+     });
+
+     const data = await response.json();
+
+     if (!Array.isArray(data)) {
+         throw new Error("Unexpected API response format");
+     }
+
+     questions = data.map((q) => ({
+         question: q.question,
+         answers: shuffle([
+             ...Object.entries(q.answers)
+                 .filter(([_, text]) => text)
+                 .map(([key, text]) => ({
+                     text,
+                     correct: q.correct_answers[`${key}_correct`] === "true"
+                 }))
+         ])
+     }));
+
+     startQuiz();  
+ } catch (error) {
+     console.error("Error fetching questions:", error);
+     questionElement.innerHTML = "Failed to load questions. Try again later.";
+ }
+}; 
+
+const shuffle = (array) => array.sort(() => Math.random() - 0.5);
+
 
 const startQuiz = () => {
  currentQuestionIndex = 0;
@@ -56,7 +57,7 @@ const showQuestion = () => {
  resetState();
  let currentQuestion = questions[currentQuestionIndex];
  let questionNo = currentQuestionIndex + 1;
- quesitonElement.innerHTML = questionNo + ". " + currentQuestion.question;
+ questionElement.innerHTML = questionNo + ". " + currentQuestion.question;
 
  currentQuestion.answers.forEach(answer => {
   const button = document.createElement("button");
@@ -98,7 +99,7 @@ const selectAnswer = (e) => {
 
 const showScore = () => {
  resetState();
- quesitonElement.innerHTML = `You scored ${score} out of ${questions.length}!`;
+ questionElement.innerHTML = `You scored ${score} out of ${questions.length}!`;
  nextButton.innerHTML = "Play Again";
  nextButton.style.display = "block"
 }
@@ -116,8 +117,8 @@ nextButton.addEventListener("click", () => {
  if(currentQuestionIndex < questions.length){
   handleNextButton();
  }else{
-  startQuiz();
+  fetchQuestions();
  }
 })
 
-startQuiz();
+fetchQuestions();
