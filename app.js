@@ -583,3 +583,36 @@
 // .catch(error => {
 //  console.error('Failed to sum promises:', error)
 // })
+
+//Async Await method
+
+// const sumOfPromises = async (promise1, promise2) => {
+//   const value1 = await promise1;
+//   const value2 = await promise2;
+
+//   return value1 + value2;
+
+// }
+
+// sumOfPromises(Promise.resolve(30), Promise.resolve(30)).then(console.log)
+
+// .then Chainging method
+
+// const sumOfPromises = (promise1, promise2) => {
+//  return promise1.then(value1 => 
+//   promise2.then(value2 =>  value1 + value2 )
+// )
+// }
+
+// sumOfPromises(Promise.resolve(43), Promise.resolve(34)).then(console.log)
+
+//Promise.resolve() method
+
+// const sumOfPromises = (promise1, promise2) => {
+//  return Promise.resolve(promise1)
+//  .then(value1 => Promise.resolve(promise2)
+// .then(value2 => value1 + value2))
+// }
+
+// sumOfPromises(Promise.resolve(43), Promise.resolve(344)).then(console.log)
+
