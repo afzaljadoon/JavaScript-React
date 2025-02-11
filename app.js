@@ -617,18 +617,27 @@
 // sumOfPromises(Promise.resolve(43), Promise.resolve(344)).then(console.log)
 
 //Method to wait a task for some time 
-const sleep = async (millis) => {
- return new Promise((resolve) => {
-     setTimeout(() => {
-         resolve("Done Sleeping")
-     }, millis)
- })
-}
+// const sleep = async (millis) => {
+//  return new Promise((resolve) => {
+//      setTimeout(() => {
+//          resolve("Done Sleeping")
+//      }, millis)
+//  })
+// }
 
-const main = async () => {
- console.log("Sleeping for 2000 milliseconds");
- await sleep(2000);
- console.log("Wake up now");
-};
+// const main = async () => {
+//  console.log("Sleeping for 2000 milliseconds");
+//  await sleep(2000);
+//  console.log("Wake up now");
+// };
 
-main();
+// main();
+
+//Waiting task with the help of IIFE function
+// const sleep = (millis) => new Promise(resolve => setTimeout(resolve, millis));
+
+// (async () => {
+//     console.log("Sleeping for 2000 milliseconds");
+//     await sleep(2000);
+//     console.log("Wake up now");
+// })();
