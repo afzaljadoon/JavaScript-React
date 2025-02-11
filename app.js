@@ -643,11 +643,27 @@
 // })();
 
 // With help of Generator function
-function* sleepGenerator(millis) {
- console.log("Sleeping for 2000 milliseconds");
- yield new Promise(resolve => setTimeout(resolve, millis));
- console.log("Wake up now");
-}
+// function* sleepGenerator(millis) {
+//  console.log("Sleeping for 2000 milliseconds");
+//  yield new Promise(resolve => setTimeout(resolve, millis));
+//  console.log("Wake up now");
+// }
 
-const iterator = sleepGenerator(2000);
-iterator.next().value.then(() => iterator.next());
+// const iterator = sleepGenerator(2000);
+// iterator.next().value.then(() => iterator.next());
+
+// Using setTimeout 
+// console.log("Sleeping for 2000 milliseconds");
+
+// setTimeout(() => {
+//     console.log("Wake up now");
+// }, 2000);
+
+// setTimeout wrapped in Promise.then()
+const sleep = (millis) => new Promise(resolve => setTimeout(resolve, millis));
+
+console.log("Sleeping for 2000 milliseconds");
+
+sleep(2000).then(() => {
+    console.log("Wake up now");
+});
