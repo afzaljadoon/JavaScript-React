@@ -641,3 +641,13 @@
 //     await sleep(2000);
 //     console.log("Wake up now");
 // })();
+
+// With help of Generator function
+function* sleepGenerator(millis) {
+ console.log("Sleeping for 2000 milliseconds");
+ yield new Promise(resolve => setTimeout(resolve, millis));
+ console.log("Wake up now");
+}
+
+const iterator = sleepGenerator(2000);
+iterator.next().value.then(() => iterator.next());
