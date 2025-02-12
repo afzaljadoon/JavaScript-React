@@ -9,7 +9,7 @@ const symbol = "@#%^&*()_+~|}{[]></-=";
 const allChars = upperCase + lowerCase + number + symbol;
 
 const createPassword = () => {
- let paassword = "";
+ let password = "";
  password += upperCase[Math.floor(Math.random() * upperCase.length)]
  password += lowerCase[Math.floor(Math.random() * lowerCase.length)]
  password += number[Math.floor(Math.random() * number.length)]
@@ -20,4 +20,10 @@ const createPassword = () => {
  }
  passwordBox.value = password;
 }
+
+const copyPassword = () => {
+ passwordBox.select();
+ document.execCommand("copy");
+}
+
 
