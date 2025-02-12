@@ -660,10 +660,38 @@
 // }, 2000);
 
 // setTimeout wrapped in Promise.then()
-const sleep = (millis) => new Promise(resolve => setTimeout(resolve, millis));
+// const sleep = (millis) => new Promise(resolve => setTimeout(resolve, millis));
 
-console.log("Sleeping for 2000 milliseconds");
+// console.log("Sleeping for 2000 milliseconds");
 
-sleep(2000).then(() => {
-    console.log("Wake up now");
-});
+// sleep(2000).then(() => {
+//     console.log("Wake up now");
+// });
+
+
+//Function to delay for some time and if job done so another function to cancel the function 
+
+const delayWithCancel = (fn, args, t) => {
+
+ const timeoutId = setTimeout(() => {
+  fn(...args)
+ }, t);
+
+ return cancelFn = () => {
+  clearTimeout(timeoutId)
+ }
+
+ 
+}
+
+const greet = (name) => {
+console.log(`Hello, ${name}`);
+}
+
+const cancelGreet = delayWithCancel(greet, ['Afzal'], 3000)
+
+setTimeout(() => {
+ cancelGreet();
+ console.log("Greeting canceled");
+}, 1000);
+
