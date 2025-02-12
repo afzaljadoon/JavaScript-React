@@ -46,7 +46,7 @@ const VideoCarousel = () => {
    }
  }, [videoId, startPlay])
 
- const handleProcess= {type, i} => {
+ const handleProcess= (type, i) => {
   switch(type){
     case 'video-end':
       setVideo((pre) => ({...prevVideo, isEnd :  true, videoId: i + 1 }))
@@ -57,6 +57,11 @@ const VideoCarousel = () => {
         case 'video-reset':
         setVideo((pre) => ({...pre, isLastVideo: false, videoId: 0}))
         break;
+        case 'play':
+        setVideo((pre) => ({...pre, isPlaying: pre.isPlaying}))
+        break;
+        default:
+          return video;
 
   }
  }
