@@ -671,27 +671,56 @@
 
 //Function to delay for some time and if job done so another function to cancel the function 
 
-const delayWithCancel = (fn, args, t) => {
+// const delayWithCancel = (fn, args, t) => {
 
- const timeoutId = setTimeout(() => {
-  fn(...args)
- }, t);
+//  const timeoutId = setTimeout(() => {
+//   fn(...args)
+//  }, t);
 
- return cancelFn = () => {
-  clearTimeout(timeoutId)
- }
+//  return cancelFn = () => {
+//   clearTimeout(timeoutId)
+//  }
 
  
-}
+// }
 
-const greet = (name) => {
-console.log(`Hello, ${name}`);
-}
+// const greet = (name) => {
+// console.log(`Hello, ${name}`);
+// }
 
-const cancelGreet = delayWithCancel(greet, ['Afzal'], 3000)
+// const cancelGreet = delayWithCancel(greet, ['Afzal'], 3000)
 
-setTimeout(() => {
- cancelGreet();
- console.log("Greeting canceled");
-}, 1000);
+// setTimeout(() => {
+//  cancelGreet();
+//  console.log("Greeting canceled");
+// }, 1000);
+
+
+//job done with the flag
+
+// const delayWithCancel = (fn, args, t) => {
+//  let isCancelled = false;
+
+//  setTimeout(() => {
+//   if(!isCancelled);
+//   fn(...args);
+//  }, t);
+
+//  const cancelFn = () => {
+//   isCancelled = true;
+//  }
+
+//  return cancelFn;
+// }
+
+// function greet(name) {
+//  console.log(`Hello, ${name}!`);
+// }
+
+
+// const cancelGreet1 = delayWithCancel(greet, ["Alice"], 3000);
+// setTimeout(() => {
+//  cancelGreet1(); 
+// }, 1000);
+
 
