@@ -724,3 +724,28 @@
 // }, 1000);
 
 
+//Cancel interval
+
+const createCancelableFunction = (fn, args, t) => {
+ fn(...args);
+
+ const intervalId = setInterval(() => fn(...args), t);
+
+ const cancelFn = () => {
+  clearInterval(intervalId);
+ }
+
+ return cancelFn;
+}
+
+const greet = (name) => {
+ console.log(`Hello, ${name}!`);
+}
+
+const cancelTimeMs = 5000;
+const intervalMs = 1000;
+const args = ["Alice"];
+
+const cancelFn = createCancelableFunction(greet, args, intervalMs);
+
+setTimeout(cancelFn, cancelTimeMs);
