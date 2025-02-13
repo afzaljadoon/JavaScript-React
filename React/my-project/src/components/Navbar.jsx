@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
 import { appleImg, bagImg, searchImg } from '../utils';
 import { navLists } from '../constants';
+import React from "react";
 
 const Navbar = () => {
   return (
