@@ -750,19 +750,45 @@
 
 // setTimeout(cancelFn, cancelTimeMs);
 
-//Promise time limit function
-var timeLimit = function(fn, t) {
+//Promise time limit function using Promise.race()
+// var timeLimit = function(fn, t) {
     
- return async function(...args) {
-     return Promise.race([
-   fn(...args),
-   new Promise((_, reject) =>
-     setTimeout(() => reject("Time Limit Exceeded"), t)
-   ),
- ]);
- }
+//  return async function(...args) {
+//      return Promise.race([
+//    fn(...args),
+//    new Promise((_, reject) =>
+//      setTimeout(() => reject("Time Limit Exceeded"), t)
+//    ),
+//  ]);
+//  }
 
-};
+// };
+
+// const asyncFunction = async (n) => {
+//  await new Promise((res) => setTimeout(res, n));
+//  return "Completed";
+// };
+
+// const limitedFunction = timeLimit(asyncFunction, 100);
+
+// limitedFunction(50).then(console.log).catch(console.error);  
+// limitedFunction(150).then(console.log).catch(console.error);
+
+//Promise time limit using AbortController
+function timeLimit(fn, t) {
+ return async function (...args) {
+   const controller = new AbortController();
+   const timeout = setTimeout(() => controller.abort(), t);
+
+   try {
+     const result = await fn(...args, { signal: controller.signal });
+     clearTimeout(timeout);
+     return result;
+   } catch (error) {
+     throw "Time Limit Exceeded";
+   }
+ };
+}
 
 const asyncFunction = async (n) => {
  await new Promise((res) => setTimeout(res, n));
