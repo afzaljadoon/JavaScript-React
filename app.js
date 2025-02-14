@@ -856,4 +856,29 @@
   
 //   limitedFunction(50).then(console.log).catch(console.error);  
 //   limitedFunction(150).then(console.log).catch(console.error);
+
+//Promose time limit using EventEmitter
+// const EventEmitter = require("events");
+
+// function timeLimit(fn, t) {
+//   return async function (...args) {
+//     const emitter = new EventEmitter();
+
+//     setTimeout(() => emitter.emit("timeout"), t);
+
+//     return new Promise((resolve, reject) => {
+//       emitter.once("timeout", () => reject("Time Limit Exceeded"));
+//       fn(...args).then(resolve).catch(reject);
+//     });
+//   };
+// }
  
+// const asyncFunction = async (n) => {
+//     await new Promise((res) => setTimeout(res, n));
+//     return "Completed";
+//    };
+   
+//    const limitedFunction = timeLimit(asyncFunction, 100);
+   
+//    limitedFunction(50).then(console.log).catch(console.error);  
+//    limitedFunction(150).then(console.log).catch(console.error);
