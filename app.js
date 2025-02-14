@@ -775,27 +775,57 @@
 // limitedFunction(150).then(console.log).catch(console.error);
 
 //Promise time limit using AbortController
+// function timeLimit(fn, t) {
+//  return async function (...args) {
+//    const controller = new AbortController();
+//    const timeout = setTimeout(() => controller.abort(), t);
+
+//    try {
+//      const result = await fn(...args, { signal: controller.signal });
+//      clearTimeout(timeout);
+//      return result;
+//    } catch (error) {
+//      throw "Time Limit Exceeded";
+//    }
+//  };
+// }
+
+// const asyncFunction = async (n) => {
+//  await new Promise((res) => setTimeout(res, n));
+//  return "Completed";
+// };
+
+// const limitedFunction = timeLimit(asyncFunction, 100);
+
+// limitedFunction(50).then(console.log).catch(console.error);  
+// limitedFunction(150).then(console.log).catch(console.error);
+
+// Promise time limit using setTimeout wrapper method
 function timeLimit(fn, t) {
  return async function (...args) {
-   const controller = new AbortController();
-   const timeout = setTimeout(() => controller.abort(), t);
+   return new Promise((resolve, reject) => {
+     const timer = setTimeout(() => reject("Time Limit Exceeded"), t);
 
-   try {
-     const result = await fn(...args, { signal: controller.signal });
-     clearTimeout(timeout);
-     return result;
-   } catch (error) {
-     throw "Time Limit Exceeded";
-   }
+     fn(...args)
+       .then((res) => {
+         clearTimeout(timer);
+         resolve(res);
+       })
+       .catch((err) => {
+         clearTimeout(timer);
+         reject(err);
+       });
+   });
  };
 }
 
 const asyncFunction = async (n) => {
- await new Promise((res) => setTimeout(res, n));
- return "Completed";
-};
-
-const limitedFunction = timeLimit(asyncFunction, 100);
-
-limitedFunction(50).then(console.log).catch(console.error);  
-limitedFunction(150).then(console.log).catch(console.error);
+  await new Promise((res) => setTimeout(res, n));
+  return "Completed";
+ };
+ 
+ const limitedFunction = timeLimit(asyncFunction, 100);
+ 
+ limitedFunction(50).then(console.log).catch(console.error);  
+ limitedFunction(150).then(console.log).catch(console.error);
+ 
