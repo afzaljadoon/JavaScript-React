@@ -829,3 +829,31 @@
 //  limitedFunction(50).then(console.log).catch(console.error);  
 //  limitedFunction(150).then(console.log).catch(console.error);
 
+//Promise time limit using async/await with Promise.all()
+// function timeLimit(fn, t) {
+//  return async function (...args) {
+//    let timeout;
+//    try {
+//      const result = await Promise.all([
+//        fn(...args),
+//        new Promise((_, reject) => {
+//          timeout = setTimeout(() => reject("Time Limit Exceeded"), t);
+//        }),
+//      ]);
+//      return result[0]; // Return the resolved value of fn
+//    } finally {
+//      clearTimeout(timeout);
+//    }
+//  };
+// }
+
+// const asyncFunction = async (n) => {
+//    await new Promise((res) => setTimeout(res, n));
+//    return "Completed";
+//   };
+  
+//   const limitedFunction = timeLimit(asyncFunction, 100);
+  
+//   limitedFunction(50).then(console.log).catch(console.error);  
+//   limitedFunction(150).then(console.log).catch(console.error);
+ 
