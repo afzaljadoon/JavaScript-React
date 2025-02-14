@@ -801,31 +801,31 @@
 // limitedFunction(150).then(console.log).catch(console.error);
 
 // Promise time limit using setTimeout wrapper method
-function timeLimit(fn, t) {
- return async function (...args) {
-   return new Promise((resolve, reject) => {
-     const timer = setTimeout(() => reject("Time Limit Exceeded"), t);
+// function timeLimit(fn, t) {
+//  return async function (...args) {
+//    return new Promise((resolve, reject) => {
+//      const timer = setTimeout(() => reject("Time Limit Exceeded"), t);
 
-     fn(...args)
-       .then((res) => {
-         clearTimeout(timer);
-         resolve(res);
-       })
-       .catch((err) => {
-         clearTimeout(timer);
-         reject(err);
-       });
-   });
- };
-}
+//      fn(...args)
+//        .then((res) => {
+//          clearTimeout(timer);
+//          resolve(res);
+//        })
+//        .catch((err) => {
+//          clearTimeout(timer);
+//          reject(err);
+//        });
+//    });
+//  };
+// }
 
-const asyncFunction = async (n) => {
-  await new Promise((res) => setTimeout(res, n));
-  return "Completed";
- };
+// const asyncFunction = async (n) => {
+//   await new Promise((res) => setTimeout(res, n));
+//   return "Completed";
+//  };
  
- const limitedFunction = timeLimit(asyncFunction, 100);
+//  const limitedFunction = timeLimit(asyncFunction, 100);
  
- limitedFunction(50).then(console.log).catch(console.error);  
- limitedFunction(150).then(console.log).catch(console.error);
- 
+//  limitedFunction(50).then(console.log).catch(console.error);  
+//  limitedFunction(150).then(console.log).catch(console.error);
+
