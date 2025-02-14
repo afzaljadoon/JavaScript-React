@@ -726,26 +726,50 @@
 
 //Cancel interval
 
-const createCancelableFunction = (fn, args, t) => {
- fn(...args);
+// const createCancelableFunction = (fn, args, t) => {
+//  fn(...args);
 
- const intervalId = setInterval(() => fn(...args), t);
+//  const intervalId = setInterval(() => fn(...args), t);
 
- const cancelFn = () => {
-  clearInterval(intervalId);
+//  const cancelFn = () => {
+//   clearInterval(intervalId);
+//  }
+
+//  return cancelFn;
+// }
+
+// const greet = (name) => {
+//  console.log(`Hello, ${name}!`);
+// }
+
+// const cancelTimeMs = 5000;
+// const intervalMs = 1000;
+// const args = ["Alice"];
+
+// const cancelFn = createCancelableFunction(greet, args, intervalMs);
+
+// setTimeout(cancelFn, cancelTimeMs);
+
+//Promise time limit function
+var timeLimit = function(fn, t) {
+    
+ return async function(...args) {
+     return Promise.race([
+   fn(...args),
+   new Promise((_, reject) =>
+     setTimeout(() => reject("Time Limit Exceeded"), t)
+   ),
+ ]);
  }
 
- return cancelFn;
-}
+};
 
-const greet = (name) => {
- console.log(`Hello, ${name}!`);
-}
+const asyncFunction = async (n) => {
+ await new Promise((res) => setTimeout(res, n));
+ return "Completed";
+};
 
-const cancelTimeMs = 5000;
-const intervalMs = 1000;
-const args = ["Alice"];
+const limitedFunction = timeLimit(asyncFunction, 100);
 
-const cancelFn = createCancelableFunction(greet, args, intervalMs);
-
-setTimeout(cancelFn, cancelTimeMs);
+limitedFunction(50).then(console.log).catch(console.error);  
+limitedFunction(150).then(console.log).catch(console.error);
