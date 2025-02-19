@@ -882,3 +882,21 @@
    
 //    limitedFunction(50).then(console.log).catch(console.error);  
 //    limitedFunction(150).then(console.log).catch(console.error);
+
+//Debounce
+// const debounce = (fn, t) => {
+// let timeoutId;
+// return function (args){
+//  clearTimeout(timeoutId);
+//  timeoutId = setTimeout(() => fn(...args), t);
+// }
+// }
+
+// function logMessage(message) {
+//  console.log("Executed:", message);
+// }
+
+// const debouncedLog = debounce(logMessage, 50);
+// debouncedLog("Hello");  
+// setTimeout(() => debouncedLog("World"), 30);  
+// setTimeout(() => debouncedLog("Final"), 70);
