@@ -1,25 +1,28 @@
 import { useGSAP } from '@gsap/react'
-import React, { useState, userRef } from 'react'
+import React, { useState, useRef } from 'react'
 import gsap from 'gsap';
 import ModelView from './ModelView';
 import { yellowImg } from '../utils';
 import * as THREE from 'three';
+import { Canvas } from "@react-three/fiber";
+import { View } from "@react-three/drei";
+import { models, sizes } from "../constants";
 
 const Model = () => {
  const [size, setSize] = useState('small');
- const [Modal, setModal] = useState({
+ const [model, setModal] = useState({
   title: 'iPhone 15 Pro in Natural Titanium',
   color: ['#8F8A81', '#FFE789', '6F6C64'],
   img: yellowImg,
  })
 
  //camera control for the model view
- const cameraControlSmall = userRef();
- const cameraControlLarge= userRef();
+ const cameraControlSmall = useRef();
+ const cameraControlLarge= useRef();
 
  //model
- const small = userRef(new THREE.Group());
- const large = userRef(new THREE.Group());
+ const small = useRef(new THREE.Group());
+ const large = useRef(new THREE.Group());
 
  //rotation
  const [smallRotation, setSmallRotation] = useState(0);
@@ -67,13 +70,26 @@ useGSAP(() => {
           overflow: 'hidden',
          }}
          eventSource={document.getElementById('root')}>
-           <view.Port />
+           <View.Port />
          </Canvas>
         </div>
         <div className="mx-auto w-full">
          <p className='text-sm font-light text-center mb-5' >{model.title}</p>
          <div className="flex-center">
-          
+          <ul className='color-container'>
+           {models.map((item, i)=> {
+            <li key={i} className='w-6 h-6 rounded-full mx-2 cursor-pointer' style={{
+             backgroundColor: item.color[0]
+            }} onClick= {() => setModal(item)}/>
+           })}
+          </ul>
+          <div className="size-btn-container">
+           {sizes.map(({ label, value }) => (
+            <span key={label} className='size-btn' style={{ backgroundColor: size === value ? 'white' : 'transparent', color: size === value ? 'black' : 'white'}} onClick={() => setSize (value)}>
+             {label}
+            </span>
+           ))}
+          </div>
          </div>
         </div>
        </div>
