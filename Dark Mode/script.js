@@ -8,3 +8,7 @@ icon.onclick = function () {
   icon.src = "images/moon.png";
  }
 }
+
+document.getElementById("menu-icon").addEventListener("click", function() {
+ document.getElementById("nav-links").classList.toggle("active");
+});
