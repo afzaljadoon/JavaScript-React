@@ -66,3 +66,12 @@ const validateMessage = () => {
  messageError.innerHTML = '<i class="fas fa-check-circle"></i>';
  return false;
 }
+
+const validateForm = () => {
+ if(!validateName() || !validatePhone() || !validateEmail() || validateMessage()){
+  submitError.style.display = 'block';
+  submitError.innerHTML = 'Please fix error to submit';
+  setTimeout(function(){submitError.style.display = 'none';}, 3000);
+  return false;
+ }
+}
