@@ -7,6 +7,10 @@ const scriptURL = 'https://script.google.com/macros/s/AKfycbzBXe2UfdbRk-ntS3N7SA
     fetch(scriptURL, { method: 'POST', body: new FormData(form)})
       .then(response => {
        msg.innerHTML = "Thank  You For Subscribing!";
+       setTimeout(function() {
+        msg.innerHTML = ""
+       }, 5000);
+       form.reset();
       })
       .catch(error => console.error('Error!', error.message))
   })
