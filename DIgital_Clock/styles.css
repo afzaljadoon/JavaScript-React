@@ -63,6 +63,7 @@
  display: inline-block;
  text-align: center;
  position: relative;
+ 
 }
 
 .clock span::after{
@@ -75,12 +76,15 @@
 
 #hrs::after{
  content: "HOURS";
+ margin-bottom: -4px;
 }
 
 #min::after{
  content: "MINS";
+ margin-bottom: -4px;
 }
 
 #sec::after{
  content: "SEC";
+ margin-bottom: -4px;
 }
