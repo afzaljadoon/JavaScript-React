@@ -83,13 +83,13 @@ useGSAP(() => {
             }} onClick= {() => setModal(item)}/>
            })}
           </ul>
-          <div className="size-btn-container">
+          <button className="size-btn-container">
            {sizes.map(({ label, value }) => (
             <span key={label} className='size-btn' style={{ backgroundColor: size === value ? 'white' : 'transparent', color: size === value ? 'black' : 'white'}} onClick={() => setSize (value)}>
              {label}
             </span>
            ))}
-          </div>
+          </button>
          </div>
         </div>
        </div>
