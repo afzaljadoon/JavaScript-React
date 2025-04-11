@@ -1043,3 +1043,14 @@
 
 // console.log(removeDuplicate([3, 3, 3, 3, 3, 5, 5, 5, 5, 5, 5, 43, 23, 54 , 67, 8, 9, 3, 4, 5, 3]));
 
+// const sumNum = (arr) => {
+//  let sum = 0; 
+
+//  for ( let i = 0; i < arr.length; i++){
+//   sum = sum + arr[i];
+//  }
+
+//  return sum;
+// }
+
+// console.log(sumNum([4, 5, 7, 4, 2, 6]));
