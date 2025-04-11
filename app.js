@@ -900,3 +900,146 @@
 // debouncedLog("Hello");  
 // setTimeout(() => debouncedLog("World"), 30);  
 // setTimeout(() => debouncedLog("Final"), 70);
+
+//Reverse String 
+
+// const ReversedString = (str) => {
+// const reverseString = str.split('');
+// const reverseArray = reverseString.reverse();
+// const reverseStr = reverseArray.join('');
+// return reverseStr;
+// }
+
+// console.log(ReversedString("Hello World!"));
+
+//To check if a string is plaindrome
+// const isPalindrome = (str) => {
+//  const cleanArr = str.replace(/[^A-Za-z0-9]/g, '').toLowerCase();
+
+//  const reverseArr = cleanArr.split('').reverse().join('');
+
+// return cleanArr === reverseArr;
+// }
+
+// console.log(isPalindrome("racecar"))
+// console.log(isPalindrome("race"))
+
+//Factorial of a number 
+
+// const factorial = (n) => {
+//  let result = 1;
+
+//  for( let i = n; i >= 1; i--){
+//   result *= i;
+//  }
+
+//  return result;
+// }
+
+// console.log(factorial(6))
+// console.log(factorial(3))
+
+//Fibonacci series 
+
+// const fibonacci = (n) => {
+//  const series = [0, 1];
+
+//  if (n <= 2) return series.slice(0, n);
+
+//  for (let i = 2; i < n; i++){
+//  const nextNumber = series[i - 1] + series[i - 2];
+
+//   series.push(nextNumber);
+//  }
+//  return series;
+// }
+
+// console.log(fibonacci(6))
+// console.log(fibonacci(10))
+
+//Find the largest number 
+
+// const largestNumber = (arr) => {
+//  let max = arr[0];
+
+//  for(let i = 1; i < arr.length; i++){
+//   if(arr[i] > max){
+//    max = arr[i];
+  
+//   }
+//  }
+//  return max;
+// }
+
+// console.log(largestNumber([1, 2, 5, 3, 4, 10, 4]))
+
+// const flattenArray = (arr) => {
+//  let result = [];
+
+//  for (let item of arr){
+//   if(Array.isArray(item)){
+//    result = result.concat(flattenArray(item))
+//   } else {
+//    result.push(item)
+//   }
+//  }
+//  return result;
+// }
+
+// console.log(flattenArray([1, [2, 3], [4, [5]]]))
+
+//Checking Anagram
+// const isAnagram = (str1, str2) => {
+//  const clean1 = str1.split('').sort().join('');
+//  const clean2 = str2.split('').sort().join('');
+
+//  return clean1 === clean2;
+// }
+
+// console.log(isAnagram("silent", "listen"))
+// console.log(isAnagram("care", "race"))
+
+//Capitalizing the first character of each word
+
+// const capitilizeWord = (str) => {
+//  return str
+//  .split(' ')
+//  .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+//  .join(' ');
+
+
+// }
+
+// console.log(capitilizeWord("hello world"))
+
+
+// let a = [2, 4, 5];
+// a[10] = 99;
+
+// console.log(a.length)
+
+
+// const removeDuplicate = (arr) => {
+//  const uniqueArr = [];
+
+//  for(let i = 0; i < arr.length; i++){
+//   const currentELement = arr[i];
+  
+//   let isDuplicate = false;
+ 
+
+//  for(let j = 0; j < uniqueArr.length; j++){
+//   if(uniqueArr[j] === currentELement){
+//    isDuplicate = true;
+//    break;
+//   }
+//  }
+//   if(!isDuplicate){
+//    uniqueArr.push(currentELement);
+//   }
+//  }
+//  return uniqueArr;
+// }
+
+// console.log(removeDuplicate([3, 3, 3, 3, 3, 5, 5, 5, 5, 5, 5, 43, 23, 54 , 67, 8, 9, 3, 4, 5, 3]));
+
