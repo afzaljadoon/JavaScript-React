@@ -1083,13 +1083,13 @@
 
 // to add an array
 
-const sumArray = (str) => {
- let sum = 0;
+// const sumArray = (str) => {
+//  let sum = 0;
 
- for (let i = 0; i < str.length; i++){
-  sum = sum + str[i]
- }
- return sum;
-}
+//  for (let i = 0; i < str.length; i++){
+//   sum = sum + str[i]
+//  }
+//  return sum;
+// }
 
-console.log(sumArray([4, 5, 6, 3, 6, 2]))
+// console.log(sumArray([4, 5, 6, 3, 6, 2]))
