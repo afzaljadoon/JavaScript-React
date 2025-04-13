@@ -1054,3 +1054,29 @@
 // }
 
 // console.log(sumNum([4, 5, 7, 4, 2, 6]));
+
+//Remove the duplicate integer from an array
+
+const removeDuplicate = (str) => {
+ const arr = [];
+
+ for (let i = 0; i < str.length; i++){
+  const currentELement = str[i];
+
+  let isDuplicate = false;
+
+  for( let j = 0; j < arr.length; j++){
+   if(arr[j] === currentELement){
+    isDuplicate = true;
+    break;
+   }
+  }
+
+  if(!isDuplicate){
+  arr.push(currentELement)
+  }
+ }
+ return arr;
+}
+
+console.log(removeDuplicate([3, 5, 4, 3, 4, 5, 6 , 6 ]));
