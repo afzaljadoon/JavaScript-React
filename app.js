@@ -1057,26 +1057,39 @@
 
 //Remove the duplicate integer from an array
 
-const removeDuplicate = (str) => {
- const arr = [];
+// const removeDuplicate = (str) => {
+//  const arr = [];
+
+//  for (let i = 0; i < str.length; i++){
+//   const currentELement = str[i];
+
+//   let isDuplicate = false;
+
+//   for( let j = 0; j < arr.length; j++){
+//    if(arr[j] === currentELement){
+//     isDuplicate = true;
+//     break;
+//    }
+//   }
+
+//   if(!isDuplicate){
+//   arr.push(currentELement)
+//   }
+//  }
+//  return arr;
+// }
+
+// console.log(removeDuplicate([3, 5, 4, 3, 4, 5, 6 , 6 ]));
+
+// to add an array
+
+const sumArray = (str) => {
+ let sum = 0;
 
  for (let i = 0; i < str.length; i++){
-  const currentELement = str[i];
-
-  let isDuplicate = false;
-
-  for( let j = 0; j < arr.length; j++){
-   if(arr[j] === currentELement){
-    isDuplicate = true;
-    break;
-   }
-  }
-
-  if(!isDuplicate){
-  arr.push(currentELement)
-  }
+  sum = sum + str[i]
  }
- return arr;
+ return sum;
 }
 
-console.log(removeDuplicate([3, 5, 4, 3, 4, 5, 6 , 6 ]));
+console.log(sumArray([4, 5, 6, 3, 6, 2]))
