@@ -1095,35 +1095,59 @@
 // console.log(sumArray([4, 5, 6, 3, 6, 2]))
 
 //Promise All
-const promiseAll = (functions) => {
- return new Promise((resolve, reject) => {
-  const results = [];
-  let completed = 0;
-  const total = functions.length;
+// function promiseAll(functions) {
+//  return new Promise((resolve, reject) => {
+//    const results = [];
+//    let completed = 0;
+//    const total = functions.length;
 
-  if(total === 0){
-   resolve([]);
-   return
-  }
+//    if (total === 0) {
+//      resolve([]);
+//      return;
+//    }
 
-  functions.forEach((fn, index) => {
-   try{
-    const promise = fn();
+//    functions.forEach((fn, index) => {
+//      try {
+//        const promise = fn();
 
-    promise.then(result => {
-     results[index] = result;
-     completed++;
+//        promise.then(result => {
+//          results[index] = result;
+//          completed++;
 
-     if(completed === total){
-      resolve(results)
-     }
-    }).catch((error => {
-     reject(error);
-    });
+//          if (completed === total) {
+//            resolve(results);
+//          }
+//        }).catch(error => {
+//          reject(error);
+//        });
 
-   } catch(err){
-    reject(err);
-   }
-  });
- })
-}
+//      } catch (err) {
+//        reject(err);
+//      }
+//    });
+//  });
+// }
+
+// const functions = [
+//  () => new Promise(resolve => setTimeout(() => resolve(1), 200)),
+//  () => new Promise((_, reject) => setTimeout(() => reject("Error"), 100))
+// ];
+
+// promiseAll(functions)
+//  .then(console.log)
+//  .catch(console.error);
+
+//Checking wheater an array or object is empty or not and if it is empty so return it
+
+// const emptyArray = (obj) => {
+//  if(Array.isArray(obj)){
+//   return obj.length === 0;
+//  }
+
+//  return Object.keys(obj).length === 0;
+// }
+
+// console.log(emptyArray({"x": 3, "y": 8 }));
+// console.log(emptyArray({}));
+// console.log(emptyArray([1, 4, false, NaN]));
+// console.log(emptyArray([]));
