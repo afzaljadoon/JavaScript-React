@@ -1151,3 +1151,24 @@
 // console.log(emptyArray({}));
 // console.log(emptyArray([1, 4, false, NaN]));
 // console.log(emptyArray([]));
+
+//JavaScript Function to Chunk an Array
+
+// const chunkArray = (arr, size) => {
+
+//  let chunked = [];
+
+//  for(let i = 0; i < arr.length; i += size){
+
+//   let chunk = arr.slice(i, i + size);
+
+//   chunked.push(chunk);
+//  }
+
+//  return chunked;
+// }
+
+// console.log(chunkArray([1, 2, 3, 4, 5], 1));
+// console.log(chunkArray([1, 9, 6, 3, 2], 3));
+// console.log(chunkArray([8, 5, 3, 2, 6], 6));
+// console.log(chunkArray([], 1));   
