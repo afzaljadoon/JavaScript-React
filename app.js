@@ -1093,3 +1093,37 @@
 // }
 
 // console.log(sumArray([4, 5, 6, 3, 6, 2]))
+
+//Promise All
+const promiseAll = (functions) => {
+ return new Promise((resolve, reject) => {
+  const results = [];
+  let completed = 0;
+  const total = functions.length;
+
+  if(total === 0){
+   resolve([]);
+   return
+  }
+
+  functions.forEach((fn, index) => {
+   try{
+    const promise = fn();
+
+    promise.then(result => {
+     results[index] = result;
+     completed++;
+
+     if(completed === total){
+      resolve(results)
+     }
+    }).catch((error => {
+     reject(error);
+    });
+
+   } catch(err){
+    reject(err);
+   }
+  });
+ })
+}
