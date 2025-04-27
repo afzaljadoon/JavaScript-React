@@ -1172,3 +1172,19 @@
 // console.log(chunkArray([1, 9, 6, 3, 2], 3));
 // console.log(chunkArray([8, 5, 3, 2, 6], 6));
 // console.log(chunkArray([], 1));   
+
+//Getting the last element from an array and if array is empty so return -1
+
+// Array.prototype.last = function () {
+//  if(this.length === 0){
+//   return - 1;
+
+//  } else {
+//   return this[this.length - 1];
+//  }
+// }
+
+// const arr1 = [4, 5, 6, 6, 1];
+// const arr = [];
+
+// console.log(arr.last());
