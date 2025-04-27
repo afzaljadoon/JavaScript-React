@@ -1188,3 +1188,30 @@
 // const arr = [];
 
 // console.log(arr.last());
+
+//Grouping arrays by using groupBy method
+
+// Array.prototype.groupBy = function (fn) {
+//  const grouped = {};
+
+//  for (let item of this){
+//    const key = fn(item);
+
+//    if(!grouped[key]){
+//     grouped[key] = [];
+//    }
+//    grouped[key].push(item);
+//  }
+//  return grouped;
+// }
+
+
+// const arr = [6.1, 4.2, 6.3, 7.5, 5.6];
+// const grouped = arr.groupBy(Math.floor);
+
+// console.log(grouped);
+
+// const words = ["count", "one", "two", "three", "sahiba"];
+// const grouped = words.groupBy(word => word.length)
+
+// console.log(grouped);
