@@ -1215,3 +1215,20 @@
 // const grouped = words.groupBy(word => word.length)
 
 // console.log(grouped);
+
+// Sorting by 
+
+var sortBy = function (arr, fn) {
+ return arr.sort((a, b) => {
+  const aValue = fn(a);
+  const bValue = fn(b);
+
+  return aValue - bValue;
+ })
+}
+
+const arr = [3, 5, 1, 4, 2];
+const fn = x => x * 2;
+
+const sortedArr = sortBy(arr, fn);
+console.log(sortedArr); 
