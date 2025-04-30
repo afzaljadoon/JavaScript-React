@@ -1232,3 +1232,42 @@
 
 // const sortedArr = sortBy(arr, fn);
 // console.log(sortedArr); 
+
+//Joining two arrays by id
+
+const joinArrays = (arr1, arr2) => {
+ const map = new Map();
+
+ for (const obj of arr1){
+  map.set(obj.id, {...obj});
+ }
+
+ for(const obj of arr2){
+  if(map.has(obj.id)){
+
+   const merged = { ...map.get(obj.id), ...obj};
+
+   map.set(obj.id, merged);
+  } else {
+   map.set(obj.id, {...obj});
+  }
+ }
+
+ const joinedArray = Array.from(map.values());
+
+ joinedArray.sort((a, b) => a.id - b.id);
+
+ return joinedArray;
+}
+
+const arr1 = [
+ { id: 1, name: "Alice" },
+ { id: 2, name: "Bob" },
+];
+
+const arr2 = [
+ { id: 2, age: 25 },
+ { id: 3, name: "Charlie" },
+];
+
+console.log(joinArrays(arr1, arr2));
