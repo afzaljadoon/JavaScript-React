@@ -1235,39 +1235,65 @@
 
 //Joining two arrays by id
 
-const joinArrays = (arr1, arr2) => {
- const map = new Map();
+// const joinArrays = (arr1, arr2) => {
+//  const map = new Map();
 
- for (const obj of arr1){
-  map.set(obj.id, {...obj});
- }
+//  for (const obj of arr1){
+//   map.set(obj.id, {...obj});
+//  }
 
- for(const obj of arr2){
-  if(map.has(obj.id)){
+//  for(const obj of arr2){
+//   if(map.has(obj.id)){
 
-   const merged = { ...map.get(obj.id), ...obj};
+//    const merged = { ...map.get(obj.id), ...obj};
 
-   map.set(obj.id, merged);
-  } else {
-   map.set(obj.id, {...obj});
-  }
- }
+//    map.set(obj.id, merged);
+//   } else {
+//    map.set(obj.id, {...obj});
+//   }
+//  }
 
- const joinedArray = Array.from(map.values());
+//  const joinedArray = Array.from(map.values());
 
- joinedArray.sort((a, b) => a.id - b.id);
+//  joinedArray.sort((a, b) => a.id - b.id);
 
- return joinedArray;
-}
+//  return joinedArray;
+// }
 
-const arr1 = [
- { id: 1, name: "Alice" },
- { id: 2, name: "Bob" },
-];
+// const arr1 = [
+//  { id: 1, name: "Alice" },
+//  { id: 2, name: "Bob" },
+// ];
 
-const arr2 = [
- { id: 2, age: 25 },
- { id: 3, name: "Charlie" },
-];
+// const arr2 = [
+//  { id: 2, age: 25 },
+//  { id: 3, name: "Charlie" },
+// ];
 
-console.log(joinArrays(arr1, arr2));
+// console.log(joinArrays(arr1, arr2));
+
+// Removing duplicate from an array
+
+// const removeDuplicate = (arr) => {
+//  const uniqueArr = [];
+ 
+//  for( let i = 0; i < arr.length; i++){
+//   const currentELement = arr[i];
+//   let isDuplicate = false;
+
+//   for(let j = 0; j < uniqueArr.length; j++){
+//    if(uniqueArr[j] === currentELement){
+//     isDuplicate = true;
+//     break;
+//    }
+//   }
+//   if(!isDuplicate) {
+//    uniqueArr.push(currentELement);
+//   }
+  
+//  }
+// return uniqueArr;
+ 
+// }
+
+// console.log(removeDuplicate([3, 4, 5, 4, 2, 4, 3 ,6, 24, 24 , 13, 43]))
